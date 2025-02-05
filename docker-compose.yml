@@ -44,6 +44,20 @@ services:
       - KAFKA_BROKER_URL=kafka:9092
     depends_on:
       - kafka
+  
+  postgres:
+    image: postgres:14 
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: kafka_data
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 volumes:
   zookeeper_data:
   kafka_data:
+  postgres_data:

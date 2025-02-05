@@ -3,3 +3,5 @@ pyspark==3.1.1  # Specify the version if necessary
 pandas  # Useful for data manipulation in scripts
 numpy  # Might be needed for numerical operations
 backoff
+json
+psycopg2
