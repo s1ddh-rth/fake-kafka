@@ -57,6 +57,21 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+  
+  pyspark:
+    image: jupyter/pyspark-notebook
+    container_name: pyspark
+    ports:
+      - "8888:8888"  
+    environment:
+      - SPARK_MASTER=spark://pyspark:7077
+      - PYSPARK_PYTHON=python3
+    volumes:
+      - ./app:/home/jovyan/work 
+    depends_on:
+      - kafka
+      - postgres
+
 volumes:
   zookeeper_data:
   kafka_data:

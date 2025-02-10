@@ -4,7 +4,7 @@ import time
 import random
 
 from kafka.errors import KafkaError
-import backoff  # You'll need to add this to requirements.txt
+import backoff  
 
 @backoff.on_exception(backoff.expo, KafkaError, max_tries=5)
 def create_producer():
